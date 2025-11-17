@@ -18,20 +18,22 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun PlayScreen() {
+fun PlayScreen(navController: NavController) {
 
     val context = LocalContext.current
 
@@ -47,25 +49,24 @@ fun PlayScreen() {
 
         Box(
             modifier = Modifier
-                .size(315.dp)
-            ,
+                .size(315.dp),
             contentAlignment = Alignment.Center,
         ) {
             LazyVerticalGrid(
                 modifier = Modifier
-                    .size(300.dp)
-                    .border(2.dp, Color.Black)
-                    .clip(RoundedCornerShape(20.dp)),
+                    .size(300.dp),
                 columns = GridCells.Fixed(3),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
 
                 items(9) { index ->
                     Box(
                         modifier = Modifier
-                            .fillMaxSize()
+                            .fillMaxWidth()
+                            .padding(8.dp)
                             .aspectRatio(1F)
-                            .clip(RoundedCornerShape(20.dp))
-                            .border(2.dp, Color.Black)
+                            .border(1.dp, Color.Black)
                             .clickable {
                                 Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show()
                             }
@@ -76,6 +77,14 @@ fun PlayScreen() {
                 }
 
             }
+        }
+
+        Button(
+            onClick = {
+                navController.navigate("home")
+            }
+        ) {
+            Text("Ulang")
         }
 
 
@@ -133,7 +142,7 @@ fun Player() {
 @Composable
 fun previewPlayScreen() {
     MaterialTheme {
-        PlayScreen()
+        PlayScreen(rememberNavController())
     }
 }
 
