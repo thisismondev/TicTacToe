@@ -34,7 +34,7 @@ fun homeScreen(navController: NavController) {
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceEvenly
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
             text = "TicTacToe", style = MaterialTheme.typography.headlineMedium.copy(
@@ -102,7 +102,8 @@ fun searchRoom() {
             onValueChange = {},
             label = { Text("Masukan ID Room") }
         )
-        Button(modifier = Modifier.fillMaxWidth(), onClick = { }) {
+        Spacer(Modifier.padding(16.dp))
+        Button(contentPadding = PaddingValues(start = 35.dp, end = 35.dp), onClick = { }) {
             Text("Masuk Room")
         }
     }

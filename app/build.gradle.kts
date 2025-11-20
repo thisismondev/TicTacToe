@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.protobuf") version "0.9.4"
 }
 
 android {
@@ -57,8 +58,40 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
+    implementation("io.grpc:grpc-okhttp:1.47.0")
+    implementation("io.grpc:grpc-protobuf-lite:1.47.0")
+    implementation("io.grpc:grpc-stub:1.47.0")
 
+// Kotlin coroutine support
+    implementation("io.grpc:grpc-kotlin-stub:1.4.1")
 
 //    Navigation
     implementation("androidx.navigation:navigation-compose:2.9.2")
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.19.2"
+    }
+    plugins {
+        create("grpc") {
+            artifact = "io.grpc:protoc-gen-grpc-java:1.47.0"
+        }
+    }
+    generateProtoTasks {
+        all().forEach { task ->
+            task.plugins {
+                create("grpc") {
+                    option("lite")
+                }
+
+            }
+            task.builtins {
+                create("java") {
+                    option("lite")
+                }
+
+            }
+        }
+    }
 }

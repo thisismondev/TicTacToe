@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package tictactoe;
+
+service TicTacToe {
+  // Room management
+  rpc CreateRoom(CreateRoomRequest) returns (CreateRoomResponse);
+  rpc JoinRoom(JoinRoomRequest) returns (JoinRoomResponse);
+  rpc GetRoom(GetRoomRequest) returns (GetRoomResponse);
+
+  // Game actions
+  rpc MakeMove(MakeMoveRequest) returns (MakeMoveResponse);
+
+  // Streaming updates: server pushes room/game updates to subscribed client
+  rpc SubscribeRoom(SubscribeRoomRequest) returns (stream RoomUpdate);
+}
+
+message CreateRoomRequest {
+  string player_name = 1;
+}
+
+message CreateRoomResponse {
+  string room_id = 1;
+  Room room = 2;
+}
+
+message JoinRoomRequest {
+  string room_id = 1;
+  string player_name = 2;
+}
+
+message JoinRoomResponse {
+  bool success = 1;
+  Room room = 2;
+  string message = 3;
+}
+
+message GetRoomRequest {
+  string room_id = 1;
+}
+
+message GetRoomResponse {
+  Room room = 1;
+}
+
+message MakeMoveRequest {
+  string room_id = 1;
+  string player_name = 2;
+  int32 row = 3; // 0..2
+  int32 col = 4; // 0..2
+}
+
+message MakeMoveResponse {
+  bool success = 1;
+  string message = 2;
+  Room room = 3;
+}
+
+message SubscribeRoomRequest {
+  string room_id = 1;
+}
+
+message RoomUpdate {
+  Room room = 1;
+  string message = 2;
+}
+
+message Room {
+  string room_id = 1;
+  repeated string players = 2; // player names in order (player1, player2)
+  string turn = 3; // name of player whose turn it is
+  repeated string board = 4; // flattened 3x3 board: 9 elements: "", "X", "O"
+  string status = 5; // "waiting", "ready", "playing", "finished"
+  string winner = 6; // "" or player name or "draw"
+}
