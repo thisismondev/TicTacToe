@@ -1,3 +1,5 @@
+
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -58,9 +60,11 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    implementation("io.grpc:grpc-okhttp:1.47.0")
-    implementation("io.grpc:grpc-protobuf-lite:1.47.0")
-    implementation("io.grpc:grpc-stub:1.47.0")
+    implementation("io.grpc:grpc-okhttp:1.57.2")
+    implementation("io.grpc:grpc-protobuf-lite:1.57.2")
+    implementation("io.grpc:grpc-stub:1.57.2")
+    implementation("com.google.protobuf:protobuf-javalite:3.19.2")
+//    implementation("org.apache.tomcat:annotations-api:6.0.53")
 
 // Kotlin coroutine support
     implementation("io.grpc:grpc-kotlin-stub:1.4.1")
@@ -75,7 +79,7 @@ protobuf {
     }
     plugins {
         create("grpc") {
-            artifact = "io.grpc:protoc-gen-grpc-java:1.47.0"
+            artifact = "io.grpc:protoc-gen-grpc-java:1.57.2"
         }
     }
     generateProtoTasks {
