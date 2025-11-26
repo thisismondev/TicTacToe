@@ -61,9 +61,8 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     implementation("io.grpc:grpc-okhttp:1.57.2")
-    implementation("io.grpc:grpc-protobuf-lite:1.57.2")
+    implementation("io.grpc:grpc-protobuf:1.57.2")
     implementation("io.grpc:grpc-stub:1.57.2")
-    implementation("com.google.protobuf:protobuf-javalite:3.19.2")
 //    implementation("org.apache.tomcat:annotations-api:6.0.53")
 
 // Kotlin coroutine support
@@ -81,19 +80,19 @@ protobuf {
         create("grpc") {
             artifact = "io.grpc:protoc-gen-grpc-java:1.57.2"
         }
+        create("grpckt") {   // <--- WAJIB ADA
+            artifact = "io.grpc:protoc-gen-grpc-kotlin:1.4.1:jdk8@jar"
+        }
     }
     generateProtoTasks {
         all().forEach { task ->
             task.plugins {
-                create("grpc") {
-                    option("lite")
-                }
+                create("grpc")
+                create("grpckt")
 
             }
             task.builtins {
-                create("java") {
-                    option("lite")
-                }
+                create("java")
 
             }
         }
