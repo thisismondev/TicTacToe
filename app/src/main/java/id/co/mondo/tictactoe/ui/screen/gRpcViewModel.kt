@@ -20,11 +20,23 @@ class gRpcViewModel : ViewModel() {
     private val _room = MutableStateFlow<UiState<CreateRoomResponse?>>(UiState.Empty)
     val room: StateFlow<UiState<CreateRoomResponse?>> = _room
 
+    private val _localPlayer = MutableStateFlow("")
+    val localPlayer = _localPlayer.asStateFlow()
+
     private val _joinRoom = MutableStateFlow<UiState<Tictactoe.JoinRoomResponse?>>(UiState.Empty)
     val masukRoom: StateFlow<UiState<Tictactoe.JoinRoomResponse?>> = _joinRoom
 
     private val _roomUpdate = MutableStateFlow<UiState<RoomUpdate?>>(UiState.Empty)
     val roomUpdate = _roomUpdate.asStateFlow()
+
+    private val _board = MutableStateFlow(List(9) { "" })
+    val board = _board.asStateFlow()
+
+    private val _turn = MutableStateFlow("")
+    val turn = _turn.asStateFlow()
+
+    private val _status = MutableStateFlow("")
+    val status = _status.asStateFlow()
 
     private val _roomId = MutableStateFlow("")
     val roomId = _roomId.asStateFlow()
@@ -39,14 +51,20 @@ class gRpcViewModel : ViewModel() {
         _roomLocked.value = true
     }
 
+    fun setLocalPlayer(name: String) {
+        _localPlayer.value = name
+    }
+
     fun createRoom(player_name: String) {
         viewModelScope.launch {
+
             _room.value = UiState.Loading
             Log.d("createViewModel", "createRoom: $player_name")
             val result = client.createRoom(player_name)
             result.onSuccess {
                 _room.value = UiState.Success(it)
                 val id = it.room.roomId
+                setLocalPlayer(player_name)
                 Log.d("createViewModel", "createRoom: $id")
                 _roomId.value = id
                 subscribeRoom(id)
@@ -54,6 +72,7 @@ class gRpcViewModel : ViewModel() {
             }
             result.onFailure {
                 _room.value = UiState.Error(it.message ?: "Unknown error")
+                Log.e("createViewModel", "createRoom error: ${it.message}")
             }
         }
     }
@@ -64,6 +83,7 @@ class gRpcViewModel : ViewModel() {
             val result = client.joinRoom(player_name, room_id)
             result.onSuccess {
                 _joinRoom.value = UiState.Success(it)
+                setLocalPlayer(player_name)
                 subscribeRoom(room_id)
                 Log.d("joinViewModel", "joinRoom: $it")
                 lockRoom()
@@ -72,6 +92,18 @@ class gRpcViewModel : ViewModel() {
                 _joinRoom.value = UiState.Error(it.message ?: "Unknown error")
             }
 
+        }
+    }
+
+    fun makeMove(row: Int, col: Int, playerName: String, roomId: String) {
+        viewModelScope.launch {
+            val result = client.makeMove(roomId, playerName, row, col)
+            result.onSuccess {
+                Log.d("makeMoveViewModel", "makeMove: $it")
+            }
+            result.onFailure {
+                Log.e("makeMoveViewModel", "makeMove error: ${it.message}")
+            }
         }
     }
 
@@ -85,7 +117,6 @@ class gRpcViewModel : ViewModel() {
         viewModelScope.launch {
             val result = client.startGame(id)
             result.onSuccess {
-                subscribeRoom(id)
                 Log.d("startViewModel", "startGame: $it")
             }
             result.onFailure {
@@ -106,6 +137,9 @@ class gRpcViewModel : ViewModel() {
                     Log.d("subscribeViewModel", "Room Update Received: $update")
                     _roomUpdate.value = UiState.Success(update)
                     _navigateToPlay.value = update.room.status
+                    _board.value = update.room.boardList
+                    _turn.value = update.room.turn
+                    _status.value = update.room.status
                     Log.d("subscribeViewModel", "Room Status: $navigateToPlay")
                 }
             }

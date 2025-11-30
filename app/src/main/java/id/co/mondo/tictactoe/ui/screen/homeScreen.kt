@@ -26,14 +26,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import id.co.mondo.tictactoe.UiState
 import id.co.mondo.tictactoe.ui.TicTacToeApp
 
 
 @Composable
-fun homeScreen(navController: NavController, viewModel: gRpcViewModel = viewModel()) {
+fun homeScreen(navController: NavController, viewModel: gRpcViewModel) {
 
     val state by viewModel.roomUpdate.collectAsState()
     val goPlay by viewModel.navigateToPlay.collectAsState()

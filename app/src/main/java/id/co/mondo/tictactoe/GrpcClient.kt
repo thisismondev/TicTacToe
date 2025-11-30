@@ -20,7 +20,7 @@ import tictactoe.Tictactoe.SubscribeRoomRequest
 class GrpcClient {
 
     private val channel = OkHttpChannelBuilder
-        .forAddress("192.168.1.8", 50051)
+        .forAddress("192.168.1.4", 50051)
 //        .forAddress("10.0.2.2", 50051)
         .usePlaintext()
         .build()
@@ -38,6 +38,7 @@ class GrpcClient {
                 Log.d("GrpcClient", "createRoom: $response")
                 Result.success(response)
             } catch (e: Exception) {
+                Log.e("GrpcClient", "createRoom error: ${e.message}")
                 Result.failure(Exception("Error tidak diketahui: ${e.message}"))
             }
         }
