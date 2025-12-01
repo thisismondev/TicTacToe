@@ -20,7 +20,7 @@ import tictactoe.Tictactoe.SubscribeRoomRequest
 class GrpcClient {
 
     private val channel = OkHttpChannelBuilder
-        .forAddress("192.168.1.4", 50051)
+        .forAddress("34.46.75.229", 50051)
 //        .forAddress("10.0.2.2", 50051)
         .usePlaintext()
         .build()

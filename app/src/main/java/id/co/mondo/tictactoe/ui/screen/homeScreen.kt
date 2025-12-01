@@ -39,7 +39,7 @@ fun homeScreen(navController: NavController, viewModel: gRpcViewModel) {
 
     LaunchedEffect(goPlay) {
         if (goPlay == "playing") {
-            Log.d("UI", "Navigating to play screen...")
+            Log.d("homeScreen", "Navigating to play screen...")
             navController.navigate("play") {
                 popUpTo("home") { inclusive = true }
             }
@@ -113,6 +113,7 @@ fun radioButtonRoom(viewModel: gRpcViewModel) {
         TextField(
             value = name,
             enabled = !roomLocked,
+            singleLine = true,
             onValueChange = {
                 name = it
             },
@@ -145,6 +146,7 @@ fun searchRoom(viewModel: gRpcViewModel, name: String) {
         TextField(
             value = roomId,
             enabled = !roomLocked,
+            singleLine = true,
             onValueChange = {
                 roomId = it
             },
