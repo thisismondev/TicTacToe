@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import id.co.mondo.tictactoe.data.local.entity.GameHistoryEntity
-import id.co.mondo.tictactoe.data.local.entity.GameStateResult
+import id.co.mondo.tictactoe.data.local.entity.LeaderboardTop
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -13,19 +13,41 @@ interface GameHistoryDao {
     @Insert
     suspend fun insertGame(game: GameHistoryEntity)
 
-    @Query("SELECT * FROM game_history ORDER BY playedAt ASC LIMIT 10")
-    fun getRecentGames(): Flow<List<GameHistoryEntity>>
+    @Query("""
+    UPDATE game_history 
+    SET 
+        winAsX = CASE WHEN :winner = 'X' THEN winAsX + 1 ELSE winAsX END,
+        winAsO = CASE WHEN :winner = 'O' THEN winAsO + 1 ELSE winAsO END,
+        drawCount = CASE WHEN :winner = 'DRAW' THEN drawCount + 1 ELSE drawCount END
+    WHERE roomId = :roomId
+""")
+    suspend fun updateResult(roomId: String, winner: String)
+
+    @Query(
+        "Select * from game_history where roomId = :roomId"
+    )
+    fun getGameByRoomId(roomId: String): Flow<GameHistoryEntity?>
+
+    @Query("SELECT * FROM game_history ORDER BY playedAt ASC LIMIT :limit")
+    fun getHistoryGames(limit: Int = 10): Flow<List<GameHistoryEntity>>
 
     @Query("""
-            SELECT 
-                SUM(CASE WHEN result = 'X' THEN 1 ELSE 0 END) AS winAsX,
-                SUM(CASE WHEN result = 'O' THEN 1 ELSE 0 END) AS winAsO,
-                SUM(CASE WHEN result = 'Draw' THEN 1 ELSE 0 END) AS drawCount
-        FROM game_history WHERE roomId = :roomId
+        WITH player_stats AS (
+            SELECT playerX AS player, winAsX AS win, winAsO AS lose, drawCount AS draw FROM game_history
+            UNION ALL
+            SELECT playerO AS player, winAsO AS win, winAsX AS lose, drawCount AS draw FROM game_history
+        )
+        SELECT 
+            player,
+            SUM(win) AS totalWin,
+            SUM(lose) AS totalLoss,
+            CAST(SUM(draw)/2 AS INTEGER) AS totalDraw
+        FROM player_stats
+        WHERE player != ''
+        GROUP BY player
+        ORDER BY totalWin DESC, totalLoss ASC, totalDraw ASC, player ASC
+        LIMIT :limit
     """)
-    fun getScoreResult(roomId: String): Flow<GameStateResult>
-
-    @Query("SELECT COUNT(*) FROM game_history")
-    suspend fun getGameCount(): Int
+    fun getLeaderboard(limit: Int = 10): Flow<List<LeaderboardTop>>
 
 }

@@ -1,9 +1,9 @@
 package id.co.mondo.tictactoe.data.local.entity
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import id.co.mondo.tictactoe.data.local.model.TopPlayer
 
 @Entity(
     tableName = "game_history",
@@ -19,13 +19,23 @@ data class GameHistoryEntity(
     val roomId: String,
     val playerX: String,
     val playerO: String,
-    val result: String,
-    val playedAt: Long,
-    val duration: Long? = null,
+    val winAsX: Int = 0,
+    val winAsO: Int = 0,
+    val drawCount: Int = 0,
+    val playedAt: Long
 )
 
-data class GameStateResult(
-    @ColumnInfo(name = "winAsX") val winAsX: Int,
-    @ColumnInfo(name = "winAsO") val winAsO: Int,
-    @ColumnInfo(name = "drawCount") val drawCount: Int,
+data class LeaderboardTop(
+    val player: String,
+    val totalWin: Int,
+    val totalLoss: Int,
+    val totalDraw: Int
+)
+
+fun LeaderboardTop.toTopPlayer(rank: Int) = TopPlayer(
+    rank = rank,
+    name = player,
+    wins = totalWin,
+    losses = totalLoss,
+    draws = totalDraw
 )
