@@ -41,7 +41,7 @@ interface GameHistoryDao {
             player,
             SUM(win) AS totalWin,
             SUM(lose) AS totalLoss,
-            CAST(SUM(draw)/2 AS INTEGER) AS totalDraw
+            SUM(draw) AS totalDraw
         FROM player_stats
         WHERE player != ''
         GROUP BY player
