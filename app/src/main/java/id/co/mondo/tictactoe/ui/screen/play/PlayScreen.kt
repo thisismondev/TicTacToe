@@ -16,14 +16,27 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.activity.compose.BackHandler
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -70,6 +83,18 @@ fun PlayScreen(
         return
     }
 
+    var showExitDialog by remember { mutableStateOf(false) }
+    val isBoardEmpty = game.board.flatten().all { it == Cell.EMPTY }
+    val navigateHome = {
+        navController.navigate(Screen.Home.route) {
+            popUpTo(0) { inclusive = true }
+        }
+    }
+
+    BackHandler(enabled = game.winner == null) {
+        if (isBoardEmpty) navigateHome() else showExitDialog = true
+    }
+
     PlayScreenContent(
         room = room,
         game = game,
@@ -80,13 +105,34 @@ fun PlayScreen(
         onMainLagi = { viewModel.onMainLagi() },
         onSelesai = {
             viewModel.onSelesai()
-            navController.navigate(Screen.Home.route) {
-                popUpTo(0) { inclusive = true }
-            }
+            navigateHome()
+        },
+        onBackClick = {
+            if (isBoardEmpty || game.winner != null) navigateHome() else showExitDialog = true
         }
     )
+
+    if (showExitDialog) {
+        AlertDialog(
+            onDismissRequest = { showExitDialog = false },
+            title = { Text("Keluar Permainan?") },
+            text = { Text("Skor sudah tersimpan, progress board akan hilang.") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showExitDialog = false
+                        navigateHome()
+                    }
+                ) { Text("Keluar") }
+            },
+            dismissButton = {
+                TextButton(onClick = { showExitDialog = false }) { Text("Batal") }
+            }
+        )
+    }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun PlayScreenContent(
@@ -97,9 +143,23 @@ fun PlayScreenContent(
     onCellClick: (Int, Int) -> Unit,
     onDismiss: () -> Unit,
     onMainLagi: () -> Unit,
-    onSelesai: () -> Unit
+    onSelesai: () -> Unit,
+    onBackClick: () -> Unit = {}
 ) {
-    Scaffold(contentWindowInsets = WindowInsets.safeDrawing) { innerPadding ->
+    Scaffold(
+        contentWindowInsets = WindowInsets.safeDrawing,
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = { Text("Room ${room.roomId.take(6)}") },
+                navigationIcon = {
+                    IconButton(onClick = onBackClick) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
+                    }
+                },
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors()
+            )
+        }
+    ) { innerPadding ->
         BoxWithConstraints(
             modifier = Modifier
                 .fillMaxSize()
@@ -285,6 +345,17 @@ private fun previewEmptyBoard() = GamePlay(
     winner = null
 )
 
+private fun previewMidBoard() = GamePlay(
+    roomId = "off_ABC123",
+    board = listOf(
+        listOf(Cell.X, Cell.EMPTY, Cell.EMPTY),
+        listOf(Cell.EMPTY, Cell.O, Cell.EMPTY),
+        listOf(Cell.EMPTY, Cell.EMPTY, Cell.EMPTY)
+    ),
+    turn = Cell.X,
+    winner = null
+)
+
 private fun previewWinningBoard() = GamePlay(
     roomId = "off_ABC123",
     board = listOf(
@@ -322,6 +393,23 @@ private fun PlayScreenPlayingPreview() {
         PlayScreenContent(
             room = previewRoom(),
             game = previewEmptyBoard(),
+            showSheet = false,
+            resultText = "",
+            onCellClick = { _, _ -> },
+            onDismiss = {},
+            onMainLagi = {},
+            onSelesai = {}
+        )
+    }
+}
+
+@Preview(name = "Mid Game - Back", showBackground = true)
+@Composable
+private fun PlayScreenMidPreview() {
+    TicTacToeTheme {
+        PlayScreenContent(
+            room = previewRoom(),
+            game = previewMidBoard(),
             showSheet = false,
             resultText = "",
             onCellClick = { _, _ -> },
