@@ -32,8 +32,8 @@ class PlayViewModel @Inject constructor(
     private val _gameState = MutableStateFlow(GamePlay(roomId = roomId, turn = starter))
     val gameState: StateFlow<GamePlay> = _gameState.asStateFlow()
 
-    private val _showSheet = MutableStateFlow(false)
-    val showSheet: StateFlow<Boolean> = _showSheet.asStateFlow()
+    private val _isResultVisible = MutableStateFlow(false)
+    val isResultVisible: StateFlow<Boolean> = _isResultVisible.asStateFlow()
 
     private val _resultText = MutableStateFlow("")
     val resultText: StateFlow<String> = _resultText.asStateFlow()
@@ -117,20 +117,20 @@ class PlayViewModel @Inject constructor(
             Winner.O -> "${room?.playerO ?: "Player O"} Menang!"
             Winner.DRAW -> "Seri!"
         }
-        _showSheet.value = true
+        _isResultVisible.value = true
     }
 
-    fun onMainLagi() {
-        _showSheet.value = false
+    fun playAgain() {
+        _isResultVisible.value = false
         starter = if (starter == Cell.X) Cell.O else Cell.X
         _gameState.value = GamePlay(roomId = roomId, turn = starter, winningLine = null)
     }
 
-    fun onSelesai() {
-        _showSheet.value = false
+    fun finishSession() {
+        _isResultVisible.value = false
     }
 
-    fun dismissSheet() {
-        _showSheet.value = false
+    fun dismissResult() {
+        _isResultVisible.value = false
     }
 }

@@ -60,7 +60,7 @@ fun HistoryScreen(
     HistoryScreenContent(
         topPlayers = topPlayers,
         history = history,
-        onBack = { navController.popBackStack() }
+        onBackClick = { navController.popBackStack() }
     )
 }
 
@@ -69,7 +69,7 @@ fun HistoryScreen(
 fun HistoryScreenContent(
     topPlayers: List<TopPlayer>,
     history: List<GameHistoryEntity>,
-    onBack: () -> Unit
+    onBackClick: () -> Unit
 ) {
     var selectedTab by rememberSaveable { mutableIntStateOf(0) }
     val tabs = listOf("Leaderboard", "History")
@@ -80,7 +80,7 @@ fun HistoryScreenContent(
             CenterAlignedTopAppBar(
                 title = { Text("Riwayat & Peringkat") },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
+                    IconButton(onClick = onBackClick) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
                     }
                 }
@@ -205,7 +205,7 @@ private fun LeaderboardItem(player: TopPlayer) {
 
 @Composable
 private fun HistoryItem(item: GameHistoryEntity) {
-    val date = rememberDate(item.playedAt)
+    val date = formatPlayedAt(item.playedAt)
     Card(
         modifier = Modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
@@ -237,13 +237,13 @@ private fun HistoryItem(item: GameHistoryEntity) {
 }
 
 @Composable
-private fun rememberDate(timestamp: Long): String {
+private fun formatPlayedAt(timestamp: Long): String {
     return SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault()).format(Date(timestamp))
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun HistoryScreenLeaderboardPreview() {
+private fun HistoryContentLeaderboardPreview() {
     TicTacToeTheme {
         HistoryScreenContent(
             topPlayers = listOf(
@@ -252,14 +252,14 @@ private fun HistoryScreenLeaderboardPreview() {
                 TopPlayer(3, "Alex", 1, 4, 0)
             ),
             history = emptyList(),
-            onBack = {}
+            onBackClick = {}
         )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun HistoryScreenHistoryPreview() {
+private fun HistoryContentHistoryPreview() {
     TicTacToeTheme {
         HistoryScreenContent(
             topPlayers = emptyList(),
@@ -267,7 +267,7 @@ private fun HistoryScreenHistoryPreview() {
                 GameHistoryEntity(roomId = "off_ABC123", playerX = "Raqhib", playerO = "Mondo", winAsX = 2, winAsO = 1, drawCount = 1, playedAt = System.currentTimeMillis()),
                 GameHistoryEntity(roomId = "off_XYZ789", playerX = "Alex", playerO = "Raqhib", winAsX = 0, winAsO = 3, drawCount = 0, playedAt = System.currentTimeMillis() - 86400000)
             ),
-            onBack = {}
+            onBackClick = {}
         )
     }
 }

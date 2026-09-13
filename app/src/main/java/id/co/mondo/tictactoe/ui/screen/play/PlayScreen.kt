@@ -69,7 +69,7 @@ fun PlayScreen(
 
     val roomState by viewModel.roomState.collectAsStateWithLifecycle()
     val game by viewModel.gameState.collectAsStateWithLifecycle()
-    val showSheet by viewModel.showSheet.collectAsStateWithLifecycle()
+    val isResultVisible by viewModel.isResultVisible.collectAsStateWithLifecycle()
     val resultText by viewModel.resultText.collectAsStateWithLifecycle()
 
     val room = (roomState as? UiState.Success)?.data
@@ -83,7 +83,7 @@ fun PlayScreen(
         return
     }
 
-    var showExitDialog by remember { mutableStateOf(false) }
+    var isExitDialogVisible by remember { mutableStateOf(false) }
     val isBoardEmpty = game.board.flatten().all { it == Cell.EMPTY }
     val navigateHome = {
         navController.navigate(Screen.Home.route) {
@@ -92,41 +92,41 @@ fun PlayScreen(
     }
 
     BackHandler(enabled = game.winner == null) {
-        if (isBoardEmpty) navigateHome() else showExitDialog = true
+        if (isBoardEmpty) navigateHome() else isExitDialogVisible = true
     }
 
     PlayScreenContent(
         room = room,
         game = game,
-        showSheet = showSheet,
+        isResultVisible = isResultVisible,
         resultText = resultText,
         onCellClick = { r, c -> viewModel.makeMove(r, c) },
-        onDismiss = { viewModel.dismissSheet() },
-        onMainLagi = { viewModel.onMainLagi() },
-        onSelesai = {
-            viewModel.onSelesai()
+        onDismissRequest = { viewModel.dismissResult() },
+        onPlayAgainClick = { viewModel.playAgain() },
+        onFinishClick = {
+            viewModel.finishSession()
             navigateHome()
         },
         onBackClick = {
-            if (isBoardEmpty || game.winner != null) navigateHome() else showExitDialog = true
+            if (isBoardEmpty || game.winner != null) navigateHome() else isExitDialogVisible = true
         }
     )
 
-    if (showExitDialog) {
+    if (isExitDialogVisible) {
         AlertDialog(
-            onDismissRequest = { showExitDialog = false },
+            onDismissRequest = { isExitDialogVisible = false },
             title = { Text("Keluar Permainan?") },
             text = { Text("Skor sudah tersimpan, progress board akan hilang.") },
             confirmButton = {
                 TextButton(
                     onClick = {
-                        showExitDialog = false
+                        isExitDialogVisible = false
                         navigateHome()
                     }
                 ) { Text("Keluar") }
             },
             dismissButton = {
-                TextButton(onClick = { showExitDialog = false }) { Text("Batal") }
+                TextButton(onClick = { isExitDialogVisible = false }) { Text("Batal") }
             }
         )
     }
@@ -138,12 +138,12 @@ fun PlayScreen(
 fun PlayScreenContent(
     room: GameRoom,
     game: GamePlay,
-    showSheet: Boolean,
+    isResultVisible: Boolean,
     resultText: String,
     onCellClick: (Int, Int) -> Unit,
-    onDismiss: () -> Unit,
-    onMainLagi: () -> Unit,
-    onSelesai: () -> Unit,
+    onDismissRequest: () -> Unit,
+    onPlayAgainClick: () -> Unit,
+    onFinishClick: () -> Unit,
     onBackClick: () -> Unit = {}
 ) {
     Scaffold(
@@ -166,9 +166,9 @@ fun PlayScreenContent(
                 .padding(innerPadding)
                 .consumeWindowInsets(innerPadding)
         ) {
-            val isWide = maxWidth >= 600.dp
+            val isWideScreen = maxWidth >= 600.dp
 
-            if (isWide) {
+            if (isWideScreen) {
                 Row(
                     modifier = Modifier
                         .fillMaxSize()
@@ -224,12 +224,12 @@ fun PlayScreenContent(
         }
     }
 
-    if (showSheet) {
+    if (isResultVisible) {
         ResultSheet(
             resultText = resultText,
-            onDismiss = onDismiss,
-            onMainLagi = onMainLagi,
-            onSelesai = onSelesai
+            onDismissRequest = onDismissRequest,
+            onPlayAgainClick = onPlayAgainClick,
+            onFinishClick = onFinishClick
         )
     }
 }
@@ -388,68 +388,68 @@ private fun previewDrawBoard() = GamePlay(
     showBackground = true
 )
 @Composable
-private fun PlayScreenPlayingPreview() {
+private fun PlayContentPlayingPreview() {
     TicTacToeTheme {
         PlayScreenContent(
             room = previewRoom(),
             game = previewEmptyBoard(),
-            showSheet = false,
+            isResultVisible = false,
             resultText = "",
             onCellClick = { _, _ -> },
-            onDismiss = {},
-            onMainLagi = {},
-            onSelesai = {}
+            onDismissRequest = {},
+            onPlayAgainClick = {},
+            onFinishClick = {}
         )
     }
 }
 
 @Preview(name = "Mid Game - Back", showBackground = true)
 @Composable
-private fun PlayScreenMidPreview() {
+private fun PlayContentMidGamePreview() {
     TicTacToeTheme {
         PlayScreenContent(
             room = previewRoom(),
             game = previewMidBoard(),
-            showSheet = false,
+            isResultVisible = false,
             resultText = "",
             onCellClick = { _, _ -> },
-            onDismiss = {},
-            onMainLagi = {},
-            onSelesai = {}
+            onDismissRequest = {},
+            onPlayAgainClick = {},
+            onFinishClick = {}
         )
     }
 }
 
 @Preview(name = "Winning - Row", showBackground = true)
 @Composable
-private fun PlayScreenWinningPreview() {
+private fun PlayContentWinningPreview() {
     TicTacToeTheme {
         PlayScreenContent(
             room = previewRoom(),
             game = previewWinningBoard(),
-            showSheet = true,
+            isResultVisible = true,
             resultText = "Raqhib Menang!",
             onCellClick = { _, _ -> },
-            onDismiss = {},
-            onMainLagi = {},
-            onSelesai = {}
+            onDismissRequest = {},
+            onPlayAgainClick = {},
+            onFinishClick = {}
         )
     }
 }
 
 @Preview(name = "Draw", showBackground = true)
 @Composable
-private fun PlayScreenDrawPreview() {
+private fun PlayContentDrawPreview() {
     TicTacToeTheme {
         PlayScreenContent(
             room = previewRoom(),
             game = previewDrawBoard(),
-            showSheet = true,
+            isResultVisible = true,
             resultText = "Seri!",
             onCellClick = { _, _ -> },
-            onDismiss = {},
-            onMainLagi = {},
-            onSelesai = {}
+            onDismissRequest = {},
+            onPlayAgainClick = {},
+            onFinishClick = {}
         )
     }
 }

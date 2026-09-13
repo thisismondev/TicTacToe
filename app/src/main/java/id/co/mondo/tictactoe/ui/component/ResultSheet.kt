@@ -22,14 +22,14 @@ import id.co.mondo.tictactoe.ui.theme.TicTacToeTheme
 @Composable
 fun ResultSheet(
     resultText: String,
-    onDismiss: () -> Unit,
-    onMainLagi: () -> Unit,
-    onSelesai: () -> Unit
+    onDismissRequest: () -> Unit,
+    onPlayAgainClick: () -> Unit,
+    onFinishClick: () -> Unit
 ) {
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
     ModalBottomSheet(
-        onDismissRequest = onDismiss,
+        onDismissRequest = onDismissRequest,
         sheetState = sheetState
     ) {
         Column(
@@ -47,8 +47,8 @@ fun ResultSheet(
 
             Button(
                 onClick = {
-                    onDismiss()
-                    onMainLagi()
+                    onDismissRequest()
+                    onPlayAgainClick()
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -59,8 +59,8 @@ fun ResultSheet(
 
             Button(
                 onClick = {
-                    onDismiss()
-                    onSelesai()
+                    onDismissRequest()
+                    onFinishClick()
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
