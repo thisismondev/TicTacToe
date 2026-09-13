@@ -1,4 +1,4 @@
-package id.co.mondo.tictactoe.ui.screen.home
+package id.co.mondo.tictactoe.ui.screen.offline
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,22 +14,18 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+class OfflineSetupViewModel @Inject constructor(
     private val gameRepository: GameRepository
 ) : ViewModel() {
     private val _roomState = MutableStateFlow<UiState<GameRoom>>(UiState.Empty)
     val roomState: StateFlow<UiState<GameRoom>> = _roomState.asStateFlow()
 
-    private val _roomId = MutableStateFlow("")
-    val roomId: StateFlow<String> = _roomId.asStateFlow()
-
-    fun startOfflineGame(playerX: String, playerO: String) {
+    fun startGame(playerX: String, playerO: String) {
         viewModelScope.launch {
             _roomState.value = UiState.Loading
             val res = gameRepository.createOfflineSession(playerX, playerO)
-            when(res){
+            when (res) {
                 is Result.Success -> {
-                    _roomId.value = res.data.roomId
                     val data = GameRoom(
                         roomId = res.data.roomId,
                         playerX = res.data.playerX,

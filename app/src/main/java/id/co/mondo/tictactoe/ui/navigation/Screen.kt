@@ -1,11 +1,12 @@
 package id.co.mondo.tictactoe.ui.navigation
 
 sealed class Screen(val route: String) {
-    object Home : Screen("home")
-    object Play : Screen("play/{roomId}") {
+    data object Home : Screen("home")
+    data object OfflineSetup : Screen("offline_setup")
+    data object Play : Screen("play/{roomId}") {
         fun createRoute(roomId: String): String {
             return "play/$roomId"
         }
     }
-    object History : Screen("history")
+    data object History : Screen("history")
 }

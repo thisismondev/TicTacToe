@@ -9,6 +9,7 @@ import androidx.navigation.navArgument
 import id.co.mondo.tictactoe.ui.navigation.Screen
 import id.co.mondo.tictactoe.ui.screen.history.HistoryScreen
 import id.co.mondo.tictactoe.ui.screen.home.HomeScreen
+import id.co.mondo.tictactoe.ui.screen.offline.OfflineSetupScreen
 import id.co.mondo.tictactoe.ui.screen.play.PlayScreen
 
 @Composable
@@ -18,6 +19,10 @@ fun TicTacToeApp() {
     NavHost(navController = navController, startDestination = Screen.Home.route) {
         composable(Screen.Home.route) {
             HomeScreen(navController = navController)
+        }
+
+        composable(Screen.OfflineSetup.route) {
+            OfflineSetupScreen(navController = navController)
         }
 
         composable(
