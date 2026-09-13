@@ -3,7 +3,6 @@ package id.co.mondo.tictactoe.data.local.entity
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import id.co.mondo.tictactoe.data.local.model.TopPlayer
 
 @Entity(
     tableName = "game_history",
@@ -30,12 +29,4 @@ data class LeaderboardTop(
     val totalWin: Int,
     val totalLoss: Int,
     val totalDraw: Int
-)
-
-fun LeaderboardTop.toTopPlayer(rank: Int) = TopPlayer(
-    rank = rank,
-    name = player,
-    wins = totalWin,
-    losses = totalLoss,
-    draws = totalDraw
 )

@@ -2,7 +2,6 @@ package id.co.mondo.tictactoe.data.repository
 
 import id.co.mondo.tictactoe.data.local.dao.GameHistoryDao
 import id.co.mondo.tictactoe.data.local.entity.GameHistoryEntity
-import id.co.mondo.tictactoe.data.local.entity.LeaderboardTop
 import id.co.mondo.tictactoe.util.Result
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -50,9 +49,9 @@ class GameRepository @Inject constructor(private val dao: GameHistoryDao) {
         return dao.getHistoryGames(limit)
     }
 
-    fun getLeaderboard(limit: Int = 10): Flow<List<LeaderboardTop>> {
-        return dao.getLeaderboard(limit)
-    }
+//    fun getLeaderboard(limit: Int = 10): Flow<List<LeaderboardTop>> {
+//        return dao.getLeaderboard(limit)
+//    }
 
 
 }

@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import id.co.mondo.tictactoe.data.local.entity.GameHistoryEntity
-import id.co.mondo.tictactoe.data.local.entity.LeaderboardTop
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -30,24 +29,5 @@ interface GameHistoryDao {
 
     @Query("SELECT * FROM game_history ORDER BY playedAt ASC LIMIT :limit")
     fun getHistoryGames(limit: Int = 10): Flow<List<GameHistoryEntity>>
-
-    @Query("""
-        WITH player_stats AS (
-            SELECT playerX AS player, winAsX AS win, winAsO AS lose, drawCount AS draw FROM game_history
-            UNION ALL
-            SELECT playerO AS player, winAsO AS win, winAsX AS lose, drawCount AS draw FROM game_history
-        )
-        SELECT 
-            player,
-            SUM(win) AS totalWin,
-            SUM(lose) AS totalLoss,
-            SUM(draw) AS totalDraw
-        FROM player_stats
-        WHERE player != ''
-        GROUP BY player
-        ORDER BY totalWin DESC, totalLoss ASC, totalDraw ASC, player ASC
-        LIMIT :limit
-    """)
-    fun getLeaderboard(limit: Int = 10): Flow<List<LeaderboardTop>>
 
 }

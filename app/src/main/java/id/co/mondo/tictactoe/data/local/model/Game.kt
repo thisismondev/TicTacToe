@@ -33,16 +33,16 @@ data class GamePlay(
 )
 
 
-data class TopPlayer(
-    val rank: Int,
-    val name: String,
-    val wins: Int,
-    val losses: Int,
-    val draws: Int
-) {
-    val totalGames: Int get() = wins + losses + draws
-    val winRate: Float get() = if (totalGames == 0) 0f else wins.toFloat() / totalGames
-}
+//data class TopPlayer(
+//    val rank: Int,
+//    val name: String,
+//    val wins: Int,
+//    val losses: Int,
+//    val draws: Int
+//) {
+//    val totalGames: Int get() = wins + losses + draws
+//    val winRate: Float get() = if (totalGames == 0) 0f else wins.toFloat() / totalGames
+//}
 
 
 
