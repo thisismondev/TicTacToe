@@ -20,6 +20,12 @@ class OfflineSetupViewModel @Inject constructor(
     private val _roomState = MutableStateFlow<UiState<GameRoom>>(UiState.Empty)
     val roomState: StateFlow<UiState<GameRoom>> = _roomState.asStateFlow()
 
+    fun clearError() {
+        if (_roomState.value is UiState.Error) {
+            _roomState.value = UiState.Empty
+        }
+    }
+
     fun startGame(playerX: String, playerO: String) {
         viewModelScope.launch {
             _roomState.value = UiState.Loading

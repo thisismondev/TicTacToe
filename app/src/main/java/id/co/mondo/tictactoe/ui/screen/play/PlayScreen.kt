@@ -53,6 +53,8 @@ import id.co.mondo.tictactoe.data.local.model.GameRoom
 import id.co.mondo.tictactoe.data.local.model.Winner
 import id.co.mondo.tictactoe.data.local.model.WinningLine
 import id.co.mondo.tictactoe.ui.component.GameBoard
+import id.co.mondo.tictactoe.ui.component.ErrorContent
+import id.co.mondo.tictactoe.ui.component.LoadingContent
 import id.co.mondo.tictactoe.ui.component.PlayerCard
 import id.co.mondo.tictactoe.ui.component.ResultSheet
 import id.co.mondo.tictactoe.ui.navigation.Screen
@@ -61,6 +63,7 @@ import id.co.mondo.tictactoe.util.Constants
 import id.co.mondo.tictactoe.util.UiState
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlayScreen(
     navController: NavController,
@@ -72,24 +75,92 @@ fun PlayScreen(
     val isResultVisible by viewModel.isResultVisible.collectAsStateWithLifecycle()
     val resultText by viewModel.resultText.collectAsStateWithLifecycle()
 
-    val room = (roomState as? UiState.Success)?.data
-    if (room == null) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(if (roomState is UiState.Error) (roomState as UiState.Error).errorMessage else "Loading...")
-        }
-        return
-    }
-
-    var isExitDialogVisible by remember { mutableStateOf(false) }
-    val isBoardEmpty = game.board.flatten().all { it == Cell.EMPTY }
     val navigateHome = {
         navController.navigate(Screen.Home.route) {
             popUpTo(0) { inclusive = true }
         }
     }
+
+    when (val state = roomState) {
+        is UiState.Loading, is UiState.Empty -> {
+            Scaffold(
+                contentWindowInsets = WindowInsets.safeDrawing,
+                topBar = {
+                    CenterAlignedTopAppBar(
+                        title = { Text("Memuat...") },
+                        navigationIcon = {
+                            IconButton(onClick = navigateHome) {
+                                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
+                            }
+                        }
+                    )
+                }
+            ) { innerPadding ->
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                        .consumeWindowInsets(innerPadding)
+                ) {
+                    LoadingContent(message = "Memuat room...")
+                }
+            }
+            return
+        }
+        is UiState.Error -> {
+            Scaffold(
+                contentWindowInsets = WindowInsets.safeDrawing,
+                topBar = {
+                    CenterAlignedTopAppBar(
+                        title = { Text("Room") },
+                        navigationIcon = {
+                            IconButton(onClick = navigateHome) {
+                                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
+                            }
+                        }
+                    )
+                }
+            ) { innerPadding ->
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                        .consumeWindowInsets(innerPadding)
+                ) {
+                    ErrorContent(
+                        message = state.errorMessage,
+                        onRetryClick = { viewModel.retry() }
+                    )
+                }
+            }
+            return
+        }
+        is UiState.Success -> {
+            PlayScreenLoaded(
+                room = state.data,
+                game = game,
+                isResultVisible = isResultVisible,
+                resultText = resultText,
+                navController = navController,
+                viewModel = viewModel,
+                navigateHome = navigateHome
+            )
+        }
+    }
+}
+
+@Composable
+private fun PlayScreenLoaded(
+    room: GameRoom,
+    game: GamePlay,
+    isResultVisible: Boolean,
+    resultText: String,
+    navController: NavController,
+    viewModel: PlayViewModel,
+    navigateHome: () -> Unit
+) {
+    var isExitDialogVisible by remember { mutableStateOf(false) }
+    val isBoardEmpty = game.board.flatten().all { it == Cell.EMPTY }
 
     BackHandler(enabled = game.winner == null) {
         if (isBoardEmpty) navigateHome() else isExitDialogVisible = true
@@ -450,6 +521,25 @@ private fun PlayContentDrawPreview() {
             onDismissRequest = {},
             onPlayAgainClick = {},
             onFinishClick = {}
+        )
+    }
+}
+
+@Preview(name = "Loading", showBackground = true)
+@Composable
+private fun PlayLoadingPreview() {
+    TicTacToeTheme {
+        LoadingContent(message = "Memuat room...")
+    }
+}
+
+@Preview(name = "Error", showBackground = true)
+@Composable
+private fun PlayErrorPreview() {
+    TicTacToeTheme {
+        ErrorContent(
+            message = "Room tidak ditemukan.",
+            onRetryClick = {}
         )
     }
 }

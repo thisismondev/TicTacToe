@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -16,6 +17,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,7 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import id.co.mondo.tictactoe.ui.component.ErrorInlineContent
 import id.co.mondo.tictactoe.ui.navigation.Screen
 import id.co.mondo.tictactoe.ui.theme.TicTacToeTheme
 import id.co.mondo.tictactoe.util.UiState
@@ -148,10 +150,9 @@ fun OfflineSetupContent(
                     )
 
                     if (errorMessage != null) {
-                        Text(
-                            text = errorMessage,
-                            color = MaterialTheme.colorScheme.error,
-                            style = MaterialTheme.typography.bodySmall
+                        ErrorInlineContent(
+                            message = errorMessage,
+                            onRetryClick = onStartClick
                         )
                     }
 
@@ -160,7 +161,18 @@ fun OfflineSetupContent(
                         modifier = Modifier.fillMaxWidth(),
                         onClick = onStartClick
                     ) {
-                        Text(if (isLoading) "Membuat Room..." else "Mulai Permainan")
+                        if (isLoading) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(18.dp),
+                                strokeWidth = 2.dp
+                            )
+                            Text(
+                                text = "Membuat Room...",
+                                modifier = Modifier.padding(start = 8.dp)
+                            )
+                        } else {
+                            Text("Mulai Permainan")
+                        }
                     }
                 }
             }
@@ -196,6 +208,23 @@ private fun OfflineSetupContentLoadingPreview() {
             onPlayerOChange = {},
             isLoading = true,
             errorMessage = null,
+            onBackClick = {},
+            onStartClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun OfflineSetupContentErrorPreview() {
+    TicTacToeTheme {
+        OfflineSetupContent(
+            playerX = "Raqhib",
+            onPlayerXChange = {},
+            playerO = "Raqhib",
+            onPlayerOChange = {},
+            isLoading = false,
+            errorMessage = "Nama Player X dan O harus berbeda",
             onBackClick = {},
             onStartClick = {}
         )

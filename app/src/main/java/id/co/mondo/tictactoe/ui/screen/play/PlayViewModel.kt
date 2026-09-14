@@ -42,6 +42,11 @@ class PlayViewModel @Inject constructor(
         loadRoom(roomId)
     }
 
+    fun retry() {
+        _roomState.value = UiState.Loading
+        loadRoom(roomId)
+    }
+
     private fun loadRoom(roomId: String) {
         viewModelScope.launch {
             gameRepository.getGameRoom(roomId).collect { entity ->

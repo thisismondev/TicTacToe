@@ -33,7 +33,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import id.co.mondo.tictactoe.data.local.entity.GameHistoryEntity
+import id.co.mondo.tictactoe.ui.component.ErrorContent
+import id.co.mondo.tictactoe.ui.component.LoadingContent
 import id.co.mondo.tictactoe.ui.theme.TicTacToeTheme
+import id.co.mondo.tictactoe.util.UiState
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -45,21 +48,23 @@ fun HistoryScreen(
     viewModel: HistoryViewModel = hiltViewModel()
 ) {
 //    val topPlayers by viewModel.topPlayers.collectAsStateWithLifecycle()
-    val history by viewModel.history.collectAsStateWithLifecycle()
+    val historyState by viewModel.historyState.collectAsStateWithLifecycle()
 
     HistoryScreenContent(
+        historyState = historyState,
 //        topPlayers = topPlayers,
-        history = history,
-        onBackClick = { navController.popBackStack() }
+        onBackClick = { navController.popBackStack() },
+        onRetryClick = { viewModel.retry() }
     )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HistoryScreenContent(
+    historyState: UiState<List<GameHistoryEntity>>,
 //    topPlayers: List<TopPlayer>,
-    history: List<GameHistoryEntity>,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    onRetryClick: () -> Unit = {}
 ) {
 //    var selectedTab by rememberSaveable { mutableIntStateOf(0) }
 //    val tabs = listOf("Leaderboard", "History")
@@ -98,7 +103,34 @@ fun HistoryScreenContent(
 //                    )
 //                }
 //            }
-            HistoryTab(history = history, modifier = Modifier.weight(1f))
+            when (val state = historyState) {
+                is UiState.Loading -> {
+                    LoadingContent(
+                        message = "Memuat riwayat...",
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+                is UiState.Empty -> {
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text("Belum ada riwayat", style = MaterialTheme.typography.bodyLarge)
+                    }
+                }
+                is UiState.Error -> {
+                    ErrorContent(
+                        message = state.errorMessage,
+                        onRetryClick = onRetryClick,
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+                is UiState.Success -> {
+                    HistoryTab(history = state.data, modifier = Modifier.weight(1f))
+                }
+            }
 
 //            when (selectedTab) {
 //                0 -> LeaderboardTab(topPlayers = topPlayers, modifier = Modifier.weight(1f))
@@ -234,16 +266,36 @@ private fun formatPlayedAt(timestamp: Long): String {
 
 @Preview(showBackground = true)
 @Composable
-private fun HistoryContentLeaderboardPreview() {
+private fun HistoryContentLoadingPreview() {
     TicTacToeTheme {
         HistoryScreenContent(
-//            topPlayers = listOf(
-//                TopPlayer(1, "Raqhib", 5, 1, 2),
-//                TopPlayer(2, "Mondo", 3, 2, 1),
-//                TopPlayer(3, "Alex", 1, 4, 0)
-//            ),
-            history = emptyList(),
-            onBackClick = {}
+            historyState = UiState.Loading,
+            onBackClick = {},
+            onRetryClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HistoryContentEmptyPreview() {
+    TicTacToeTheme {
+        HistoryScreenContent(
+            historyState = UiState.Empty,
+            onBackClick = {},
+            onRetryClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HistoryContentErrorPreview() {
+    TicTacToeTheme {
+        HistoryScreenContent(
+            historyState = UiState.Error("Gagal memuat riwayat."),
+            onBackClick = {},
+            onRetryClick = {}
         )
     }
 }
@@ -253,12 +305,14 @@ private fun HistoryContentLeaderboardPreview() {
 private fun HistoryContentHistoryPreview() {
     TicTacToeTheme {
         HistoryScreenContent(
-//            topPlayers = emptyList(),
-            history = listOf(
-                GameHistoryEntity(roomId = "off_ABC123", playerX = "Raqhib", playerO = "Mondo", winAsX = 2, winAsO = 1, drawCount = 1, playedAt = System.currentTimeMillis()),
-                GameHistoryEntity(roomId = "off_XYZ789", playerX = "Alex", playerO = "Raqhib", winAsX = 0, winAsO = 3, drawCount = 0, playedAt = System.currentTimeMillis() - 86400000)
+            historyState = UiState.Success(
+                listOf(
+                    GameHistoryEntity(roomId = "off_ABC123", playerX = "Raqhib", playerO = "Mondo", winAsX = 2, winAsO = 1, drawCount = 1, playedAt = System.currentTimeMillis()),
+                    GameHistoryEntity(roomId = "off_XYZ789", playerX = "Alex", playerO = "Raqhib", winAsX = 0, winAsO = 3, drawCount = 0, playedAt = System.currentTimeMillis() - 86400000)
+                )
             ),
-            onBackClick = {}
+            onBackClick = {},
+            onRetryClick = {}
         )
     }
 }
