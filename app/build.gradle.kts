@@ -4,11 +4,12 @@ plugins {
     alias(libs.plugins.google.services)
     alias(libs.plugins.ksp)
     alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
     namespace = "id.co.mondo.tictactoe"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "id.co.mondo.tictactoe"
