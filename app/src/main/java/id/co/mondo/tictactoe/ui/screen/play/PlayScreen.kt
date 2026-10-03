@@ -1,7 +1,7 @@
 package id.co.mondo.tictactoe.ui.screen.play
 
-import android.annotation.SuppressLint
 import android.content.res.Configuration
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.activity.compose.BackHandler
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.AlertDialog
@@ -52,8 +51,8 @@ import id.co.mondo.tictactoe.data.local.model.GamePlay
 import id.co.mondo.tictactoe.data.local.model.GameRoom
 import id.co.mondo.tictactoe.data.local.model.Winner
 import id.co.mondo.tictactoe.data.local.model.WinningLine
-import id.co.mondo.tictactoe.ui.component.GameBoard
 import id.co.mondo.tictactoe.ui.component.ErrorContent
+import id.co.mondo.tictactoe.ui.component.GameBoard
 import id.co.mondo.tictactoe.ui.component.LoadingContent
 import id.co.mondo.tictactoe.ui.component.PlayerCard
 import id.co.mondo.tictactoe.ui.component.ResultSheet
@@ -204,7 +203,6 @@ private fun PlayScreenLoaded(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun PlayScreenContent(
     room: GameRoom,
@@ -237,7 +235,7 @@ fun PlayScreenContent(
                 .padding(innerPadding)
                 .consumeWindowInsets(innerPadding)
         ) {
-            val isWideScreen = maxWidth >= 600.dp
+            val isWideScreen = maxWidth >= 600.dp || (maxWidth > maxHeight && maxHeight < 480.dp)
 
             if (isWideScreen) {
                 Row(
@@ -248,7 +246,10 @@ fun PlayScreenContent(
                     horizontalArrangement = Arrangement.spacedBy(24.dp)
                 ) {
                     Column(
-                        modifier = Modifier.weight(0.38f),
+                        modifier = Modifier
+                            .weight(0.38f)
+                            .fillMaxWidth()
+                            .verticalScroll(rememberScrollState()),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
@@ -262,14 +263,17 @@ fun PlayScreenContent(
                         PlayerCardsRow(room.playerX, room.playerO, game.turn, game.winner == null)
                     }
                     Box(
-                        modifier = Modifier.weight(0.62f),
+                        modifier = Modifier
+                            .weight(0.62f)
+                            .fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
                         GameBoard(
                             board = game.board,
                             winningLine = game.winningLine,
                             isMyTurn = game.winner == null,
-                            onCellClick = onCellClick
+                            onCellClick = onCellClick,
+                            modifier = Modifier.fillMaxSize()
                         )
                     }
                 }
@@ -288,7 +292,8 @@ fun PlayScreenContent(
                         board = game.board,
                         winningLine = game.winningLine,
                         isMyTurn = game.winner == null,
-                        onCellClick = onCellClick
+                        onCellClick = onCellClick,
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
             }
@@ -458,6 +463,8 @@ private fun previewDrawBoard() = GamePlay(
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     showBackground = true
 )
+@Preview(name = "Small Phone", widthDp = 320, heightDp = 480, showBackground = true)
+@Preview(name = "Phone Landscape", widthDp = 800, heightDp = 400, showBackground = true)
 @Composable
 private fun PlayContentPlayingPreview() {
     TicTacToeTheme {
@@ -474,7 +481,7 @@ private fun PlayContentPlayingPreview() {
     }
 }
 
-@Preview(name = "Mid Game - Back", showBackground = true)
+@Preview(name = "Mid Game", widthDp = 320, heightDp = 640, showBackground = true)
 @Composable
 private fun PlayContentMidGamePreview() {
     TicTacToeTheme {
