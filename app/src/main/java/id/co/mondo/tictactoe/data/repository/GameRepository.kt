@@ -1,12 +1,16 @@
 package id.co.mondo.tictactoe.data.repository
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import id.co.mondo.tictactoe.data.local.dao.GameHistoryDao
 import id.co.mondo.tictactoe.data.local.entity.GameHistoryEntity
 import id.co.mondo.tictactoe.util.Result
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GameRepository @Inject constructor(private val dao: GameHistoryDao) {
+class GameRepository @Inject constructor(
+    private val dao: GameHistoryDao,
+    private val crashlytics: FirebaseCrashlytics
+) {
 
     suspend fun createOfflineSession(playerX: String, playerO: String): Result<GameHistoryEntity> {
         return try {
@@ -26,6 +30,7 @@ class GameRepository @Inject constructor(private val dao: GameHistoryDao) {
             dao.insertGame(entity)
             Result.Success(entity)
         } catch (e: Exception) {
+            crashlytics.recordException(e)
             Result.Error(e)
         }
     }
@@ -37,6 +42,7 @@ class GameRepository @Inject constructor(private val dao: GameHistoryDao) {
             dao.updateResult(roomId, win)
             Result.Success("Hasil game untuk room $roomId berhasil diperbarui")
         } catch (e: Exception) {
+            crashlytics.recordException(e)
             Result.Error(e)
         }
     }
@@ -48,10 +54,4 @@ class GameRepository @Inject constructor(private val dao: GameHistoryDao) {
     fun getHistory(limit: Int = 10): Flow<List<GameHistoryEntity>> {
         return dao.getHistoryGames(limit)
     }
-
-//    fun getLeaderboard(limit: Int = 10): Flow<List<LeaderboardTop>> {
-//        return dao.getLeaderboard(limit)
-//    }
-
-
 }
