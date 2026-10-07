@@ -6,9 +6,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -38,7 +40,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,10 +58,13 @@ import id.co.mondo.tictactoe.ui.component.LoadingContent
 import id.co.mondo.tictactoe.ui.component.PlayerCard
 import id.co.mondo.tictactoe.ui.component.ResultSheet
 import id.co.mondo.tictactoe.ui.navigation.Screen
+import id.co.mondo.tictactoe.ui.theme.ComponentStyles
 import id.co.mondo.tictactoe.ui.theme.TicTacToeTheme
+import id.co.mondo.tictactoe.ui.theme.drawColor
+import id.co.mondo.tictactoe.ui.theme.playerOColor
+import id.co.mondo.tictactoe.ui.theme.playerXColor
 import id.co.mondo.tictactoe.util.Constants
 import id.co.mondo.tictactoe.util.UiState
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -68,7 +72,6 @@ fun PlayScreen(
     navController: NavController,
     viewModel: PlayViewModel = hiltViewModel()
 ) {
-
     val roomState by viewModel.roomState.collectAsStateWithLifecycle()
     val game by viewModel.gameState.collectAsStateWithLifecycle()
     val isResultVisible by viewModel.isResultVisible.collectAsStateWithLifecycle()
@@ -247,11 +250,11 @@ fun PlayScreenContent(
                 ) {
                     Column(
                         modifier = Modifier
-                            .weight(0.38f)
-                            .fillMaxWidth()
+                            .weight(0.4f)
+                            .fillMaxHeight()
                             .verticalScroll(rememberScrollState()),
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
                     ) {
                         ScoreCard(
                             room.playerX,
@@ -264,7 +267,7 @@ fun PlayScreenContent(
                     }
                     Box(
                         modifier = Modifier
-                            .weight(0.62f)
+                            .weight(0.6f)
                             .fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
@@ -320,7 +323,8 @@ private fun ScoreCard(
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        shape = ComponentStyles.cardShape,
+        elevation = CardDefaults.cardElevation(defaultElevation = ComponentStyles.cardElevation),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
     ) {
         Row(
@@ -361,6 +365,12 @@ private fun ScoreItem(
     isX: Boolean?,
     modifier: Modifier = Modifier
 ) {
+    val textColor = when (isX) {
+        true -> MaterialTheme.colorScheme.playerXColor
+        false -> MaterialTheme.colorScheme.playerOColor
+        else -> MaterialTheme.colorScheme.drawColor
+    }
+
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -373,12 +383,8 @@ private fun ScoreItem(
         )
         Text(
             text = value,
-            style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
-            color = when (isX) {
-                true -> androidx.compose.ui.graphics.Color.Red
-                false -> androidx.compose.ui.graphics.Color.Blue
-                else -> MaterialTheme.colorScheme.onSurfaceVariant
-            }
+            style = MaterialTheme.typography.headlineMedium,
+            color = textColor
         )
     }
 }
@@ -393,8 +399,8 @@ private fun PlayerCardsRow(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(100.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+            .height(IntrinsicSize.Min),
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         PlayerCard(
             playerName = playerX,
@@ -421,17 +427,6 @@ private fun previewEmptyBoard() = GamePlay(
     winner = null
 )
 
-private fun previewMidBoard() = GamePlay(
-    roomId = "off_ABC123",
-    board = listOf(
-        listOf(Cell.X, Cell.EMPTY, Cell.EMPTY),
-        listOf(Cell.EMPTY, Cell.O, Cell.EMPTY),
-        listOf(Cell.EMPTY, Cell.EMPTY, Cell.EMPTY)
-    ),
-    turn = Cell.X,
-    winner = null
-)
-
 private fun previewWinningBoard() = GamePlay(
     roomId = "off_ABC123",
     board = listOf(
@@ -444,17 +439,6 @@ private fun previewWinningBoard() = GamePlay(
     winningLine = WinningLine.ROW_0
 )
 
-private fun previewDrawBoard() = GamePlay(
-    roomId = "off_ABC123",
-    board = listOf(
-        listOf(Cell.X, Cell.O, Cell.X),
-        listOf(Cell.X, Cell.O, Cell.O),
-        listOf(Cell.O, Cell.X, Cell.O)
-    ),
-    turn = Cell.X,
-    winner = Winner.DRAW
-)
-
 @Preview(name = "Phone - Playing", device = Devices.PHONE, showBackground = true)
 @Preview(name = "Tablet - Playing", device = Devices.TABLET, showBackground = true)
 @Preview(
@@ -463,31 +447,12 @@ private fun previewDrawBoard() = GamePlay(
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     showBackground = true
 )
-@Preview(name = "Small Phone", widthDp = 320, heightDp = 480, showBackground = true)
-@Preview(name = "Phone Landscape", widthDp = 800, heightDp = 400, showBackground = true)
 @Composable
 private fun PlayContentPlayingPreview() {
     TicTacToeTheme {
         PlayScreenContent(
             room = previewRoom(),
             game = previewEmptyBoard(),
-            isResultVisible = false,
-            resultText = "",
-            onCellClick = { _, _ -> },
-            onDismissRequest = {},
-            onPlayAgainClick = {},
-            onFinishClick = {}
-        )
-    }
-}
-
-@Preview(name = "Mid Game", widthDp = 320, heightDp = 640, showBackground = true)
-@Composable
-private fun PlayContentMidGamePreview() {
-    TicTacToeTheme {
-        PlayScreenContent(
-            room = previewRoom(),
-            game = previewMidBoard(),
             isResultVisible = false,
             resultText = "",
             onCellClick = { _, _ -> },
@@ -511,42 +476,6 @@ private fun PlayContentWinningPreview() {
             onDismissRequest = {},
             onPlayAgainClick = {},
             onFinishClick = {}
-        )
-    }
-}
-
-@Preview(name = "Draw", showBackground = true)
-@Composable
-private fun PlayContentDrawPreview() {
-    TicTacToeTheme {
-        PlayScreenContent(
-            room = previewRoom(),
-            game = previewDrawBoard(),
-            isResultVisible = true,
-            resultText = "Seri!",
-            onCellClick = { _, _ -> },
-            onDismissRequest = {},
-            onPlayAgainClick = {},
-            onFinishClick = {}
-        )
-    }
-}
-
-@Preview(name = "Loading", showBackground = true)
-@Composable
-private fun PlayLoadingPreview() {
-    TicTacToeTheme {
-        LoadingContent(message = "Memuat room...")
-    }
-}
-
-@Preview(name = "Error", showBackground = true)
-@Composable
-private fun PlayErrorPreview() {
-    TicTacToeTheme {
-        ErrorContent(
-            message = "Room tidak ditemukan.",
-            onRetryClick = {}
         )
     }
 }

@@ -1,14 +1,17 @@
 package id.co.mondo.tictactoe.ui.screen.offline
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -34,6 +37,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -41,6 +45,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import id.co.mondo.tictactoe.ui.component.ErrorInlineContent
 import id.co.mondo.tictactoe.ui.navigation.Screen
+import id.co.mondo.tictactoe.ui.theme.ComponentStyles
 import id.co.mondo.tictactoe.ui.theme.TicTacToeTheme
 import id.co.mondo.tictactoe.util.UiState
 
@@ -94,7 +99,7 @@ fun OfflineSetupContent(
         contentWindowInsets = WindowInsets.safeDrawing,
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Main Offline") },
+                title = { Text("Main Offline", style = MaterialTheme.typography.titleLarge) },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
@@ -103,75 +108,93 @@ fun OfflineSetupContent(
             )
         }
     ) { innerPadding ->
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .consumeWindowInsets(innerPadding)
-                .verticalScroll(rememberScrollState())
-                .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+                .consumeWindowInsets(innerPadding),
+            contentAlignment = Alignment.Center
         ) {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
             ) {
-                Column(
+                Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(24.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                        .widthIn(max = 520.dp),
+                    shape = ComponentStyles.cardShape,
+                    elevation = CardDefaults.cardElevation(defaultElevation = ComponentStyles.cardElevation)
                 ) {
-                    Text(
-                        text = "Nama Pemain",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold
-                    )
-
-                    OutlinedTextField(
-                        value = playerX,
-                        enabled = !isLoading,
-                        singleLine = true,
-                        onValueChange = onPlayerXChange,
-                        label = { Text("Nama Player X") },
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = MaterialTheme.shapes.medium
-                    )
-                    OutlinedTextField(
-                        value = playerO,
-                        enabled = !isLoading,
-                        singleLine = true,
-                        onValueChange = onPlayerOChange,
-                        label = { Text("Nama Player O") },
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = MaterialTheme.shapes.medium
-                    )
-
-                    if (errorMessage != null) {
-                        ErrorInlineContent(
-                            message = errorMessage,
-                            onRetryClick = onStartClick
-                        )
-                    }
-
-                    Button(
-                        enabled = !isLoading && playerX.isNotBlank() && playerO.isNotBlank(),
-                        modifier = Modifier.fillMaxWidth(),
-                        onClick = onStartClick
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(24.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(20.dp)
                     ) {
-                        if (isLoading) {
-                            CircularProgressIndicator(
-                                modifier = Modifier.size(18.dp),
-                                strokeWidth = 2.dp
+                        Text(
+                            text = "Masukkan Nama Pemain",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold
+                        )
+
+                        OutlinedTextField(
+                            value = playerX,
+                            enabled = !isLoading,
+                            singleLine = true,
+                            onValueChange = onPlayerXChange,
+                            label = { Text("Nama Player X") },
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = ComponentStyles.inputShape
+                        )
+
+                        OutlinedTextField(
+                            value = playerO,
+                            enabled = !isLoading,
+                            singleLine = true,
+                            onValueChange = onPlayerOChange,
+                            label = { Text("Nama Player O") },
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = ComponentStyles.inputShape
+                        )
+
+                        if (errorMessage != null) {
+                            ErrorInlineContent(
+                                message = errorMessage,
+                                onRetryClick = onStartClick
                             )
-                            Text(
-                                text = "Membuat Room...",
-                                modifier = Modifier.padding(start = 8.dp)
-                            )
-                        } else {
-                            Text("Mulai Permainan")
+                        }
+
+                        Button(
+                            enabled = !isLoading && playerX.isNotBlank() && playerO.isNotBlank(),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(50.dp),
+                            shape = ComponentStyles.buttonShape,
+                            onClick = onStartClick
+                        ) {
+                            if (isLoading) {
+                                CircularProgressIndicator(
+                                    modifier = Modifier.size(20.dp),
+                                    strokeWidth = 2.dp,
+                                    color = MaterialTheme.colorScheme.onPrimary
+                                )
+                                Text(
+                                    text = "Membuat Room...",
+                                    style = MaterialTheme.typography.labelLarge,
+                                    modifier = Modifier.padding(start = 8.dp)
+                                )
+                            } else {
+                                Text(
+                                    text = "Mulai Permainan",
+                                    style = MaterialTheme.typography.labelLarge
+                                )
+                            }
                         }
                     }
                 }
@@ -180,7 +203,8 @@ fun OfflineSetupContent(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Phone Portrait", device = Devices.PHONE, showBackground = true)
+@Preview(name = "Tablet Landscape", device = Devices.TABLET, showBackground = true)
 @Composable
 private fun OfflineSetupContentPreview() {
     TicTacToeTheme {
@@ -197,7 +221,7 @@ private fun OfflineSetupContentPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Loading", showBackground = true)
 @Composable
 private fun OfflineSetupContentLoadingPreview() {
     TicTacToeTheme {
@@ -214,7 +238,7 @@ private fun OfflineSetupContentLoadingPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Error", showBackground = true)
 @Composable
 private fun OfflineSetupContentErrorPreview() {
     TicTacToeTheme {

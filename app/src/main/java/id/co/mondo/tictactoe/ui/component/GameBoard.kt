@@ -28,6 +28,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
@@ -36,14 +37,16 @@ import androidx.compose.ui.unit.sp
 import id.co.mondo.tictactoe.data.local.model.Cell
 import id.co.mondo.tictactoe.data.local.model.WinningLine
 import id.co.mondo.tictactoe.ui.theme.TicTacToeTheme
+import id.co.mondo.tictactoe.ui.theme.playerOColor
+import id.co.mondo.tictactoe.ui.theme.playerXColor
 
 private val MaxBoardSize = 480.dp
 
 private const val GAP_RATIO = 0.025f
-private const val CORNER_RATIO = 0.04f
+private const val CORNER_RATIO = 0.05f
 private const val BORDER_RATIO = 0.02f
-private const val GLYPH_RATIO = 0.5f
-private const val STROKE_RATIO = 0.03f
+private const val GLYPH_RATIO = 0.52f
+private const val STROKE_RATIO = 0.035f
 private const val GLYPH_MIN_SP = 18f
 private const val GLYPH_MAX_SP = 56f
 
@@ -60,6 +63,8 @@ fun GameBoard(
         animationSpec = tween(durationMillis = 400, easing = FastOutSlowInEasing),
         label = "winningLineProgress"
     )
+
+    val winningLineColor = MaterialTheme.colorScheme.primary
 
     BoxWithConstraints(
         modifier = modifier,
@@ -124,14 +129,14 @@ fun GameBoard(
                 )
 
                 drawLine(
-                    color = Color(0xFFE53935).copy(alpha = 0.3f),
+                    color = winningLineColor.copy(alpha = 0.3f),
                     start = start,
                     end = currentEnd,
-                    strokeWidth = stroke.scaled(1.6f).toPx(),
+                    strokeWidth = stroke.scaled(1.8f).toPx(),
                     cap = StrokeCap.Round
                 )
                 drawLine(
-                    color = Color.Red,
+                    color = winningLineColor,
                     start = start,
                     end = currentEnd,
                     strokeWidth = stroke.toPx(),
@@ -162,6 +167,9 @@ private fun GameCell(
         label = "cellScale"
     )
 
+    val playerXColor = MaterialTheme.colorScheme.playerXColor
+    val playerOColor = MaterialTheme.colorScheme.playerOColor
+
     Box(
         modifier = Modifier
             .size(cellSize)
@@ -169,10 +177,9 @@ private fun GameCell(
             .background(MaterialTheme.colorScheme.surfaceVariant)
             .border(
                 borderWidth,
-                if (isWinning) MaterialTheme.colorScheme.error else Color.Transparent,
+                if (isWinning) MaterialTheme.colorScheme.primary else Color.Transparent,
                 RoundedCornerShape(corner)
             )
-            .border(1.dp, Color.Black.copy(alpha = 0.2f), RoundedCornerShape(corner))
             .clickable(enabled = isClickable, onClick = onClick),
         contentAlignment = Alignment.Center
     ) {
@@ -184,10 +191,11 @@ private fun GameCell(
             },
             fontSize = glyphSize,
             lineHeight = glyphSize,
+            fontWeight = FontWeight.Bold,
             color = when (value) {
-                Cell.X -> Color.Red
-                Cell.O -> Color.Blue
-                Cell.EMPTY -> Color.Black
+                Cell.X -> playerXColor
+                Cell.O -> playerOColor
+                Cell.EMPTY -> MaterialTheme.colorScheme.onSurface
             },
             modifier = Modifier.scale(scale)
         )
@@ -241,73 +249,6 @@ private fun GameBoardWinningPreview() {
             winningLine = WinningLine.ROW_0,
             onCellClick = { _, _ -> },
             modifier = Modifier.size(280.dp)
-        )
-    }
-}
-
-@Preview(name = "Winning Diagonal", showBackground = true)
-@Composable
-private fun GameBoardWinningDiagonalPreview() {
-    TicTacToeTheme {
-        GameBoard(
-            board = listOf(
-                listOf(Cell.O, Cell.X, Cell.EMPTY),
-                listOf(Cell.X, Cell.O, Cell.EMPTY),
-                listOf(Cell.X, Cell.O, Cell.X)
-            ),
-            winningLine = WinningLine.DIAG_TL_BR,
-            onCellClick = { _, _ -> },
-            modifier = Modifier.size(280.dp)
-        )
-    }
-}
-
-@Preview(name = "Draw", showBackground = true)
-@Composable
-private fun GameBoardDrawPreview() {
-    TicTacToeTheme {
-        GameBoard(
-            board = listOf(
-                listOf(Cell.X, Cell.O, Cell.X),
-                listOf(Cell.X, Cell.O, Cell.O),
-                listOf(Cell.O, Cell.X, Cell.O)
-            ),
-            onCellClick = { _, _ -> },
-            modifier = Modifier.size(280.dp)
-        )
-    }
-}
-
-@Preview(name = "Tiny - Fits Width", widthDp = 280, heightDp = 400, showBackground = true)
-@Composable
-private fun GameBoardTinyPreview() {
-    TicTacToeTheme {
-        GameBoard(
-            board = listOf(
-                listOf(Cell.X, Cell.EMPTY, Cell.O),
-                listOf(Cell.EMPTY, Cell.O, Cell.EMPTY),
-                listOf(Cell.O, Cell.EMPTY, Cell.X)
-            ),
-            winningLine = null,
-            onCellClick = { _, _ -> },
-            modifier = Modifier.fillMaxWidth()
-        )
-    }
-}
-
-@Preview(name = "Large - Square Of Bounded Space", widthDp = 700, heightDp = 340, showBackground = true)
-@Composable
-private fun GameBoardLargePreview() {
-    TicTacToeTheme {
-        GameBoard(
-            board = listOf(
-                listOf(Cell.X, Cell.EMPTY, Cell.O),
-                listOf(Cell.EMPTY, Cell.O, Cell.EMPTY),
-                listOf(Cell.O, Cell.EMPTY, Cell.X)
-            ),
-            winningLine = WinningLine.COL_1,
-            onCellClick = { _, _ -> },
-            modifier = Modifier.size(600.dp, 300.dp)
         )
     }
 }
