@@ -1,0 +1,12 @@
+{
+    "key_files": {
+        "gradles": [
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\build.gradle.kts",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\settings.gradle.kts",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\build.gradle.kts"
+        ],
+        "manifests": [
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\AndroidManifest.xml"
+        ]
+    }
+}

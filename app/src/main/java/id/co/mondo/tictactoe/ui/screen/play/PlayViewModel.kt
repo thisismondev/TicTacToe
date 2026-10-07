@@ -10,6 +10,7 @@ import id.co.mondo.tictactoe.data.local.model.GameRoom
 import id.co.mondo.tictactoe.data.local.model.Winner
 import id.co.mondo.tictactoe.data.local.model.WinningLine
 import id.co.mondo.tictactoe.data.repository.GameRepository
+import id.co.mondo.tictactoe.util.AnalyticsHelper
 import id.co.mondo.tictactoe.util.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -20,6 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PlayViewModel @Inject constructor(
     private val gameRepository: GameRepository,
+    private val analyticsHelper: AnalyticsHelper,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -123,6 +125,7 @@ class PlayViewModel @Inject constructor(
             Winner.DRAW -> "Seri!"
         }
         _isResultVisible.value = true
+        analyticsHelper.logGameFinished(winner.name, roomId)
     }
 
     fun playAgain() {

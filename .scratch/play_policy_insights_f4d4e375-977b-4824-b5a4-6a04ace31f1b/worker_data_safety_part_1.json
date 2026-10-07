@@ -1,0 +1,23 @@
+{
+  "domain": "Data Safety and Privacy",
+  "findings": [
+    {
+      "psl_constant": "APP_INTERACTIONS",
+      "policy_id": "data_safety_section",
+      "issue_summary": "User-Initiated Collection (Firebase Analytics)",
+      "severity": "IMPORTANT",
+      "files_involved": [
+        "app/src/main/java/id/co/mondo/tictactoe/di/FirebaseModule.kt",
+        "app/src/main/java/id/co/mondo/tictactoe/util/AnalyticsHelper.kt"
+      ],
+      "evidence": "FirebaseAnalytics is initialized and logEvent is called to log screen views, menu clicks, and game lifecycle events for analytics purposes.",
+      "recommendation": "Declare App Interactions (Analytics) in the Google Play Console Data Safety section. Prominent in-app disclosure is not required as no sensitive PII is collected.",
+      "is_transferred": true,
+      "user_initiated": true,
+      "is_third_party": false,
+      "prominent_disclosure_status": "EXEMPT",
+      "purpose": "Analytics",
+      "linked_to_user": false
+    }
+  ]
+}

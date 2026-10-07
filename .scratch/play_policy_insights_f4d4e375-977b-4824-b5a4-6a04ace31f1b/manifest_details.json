@@ -1,0 +1,10 @@
+{
+    "app_dir": "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe",
+    "app_label": "app_name",
+    "foreground_services": [],
+    "package_name": "id.co.mondo.tictactoe",
+    "permissions": [
+        "android.permission.INTERNET"
+    ],
+    "target_sdk": 36
+}

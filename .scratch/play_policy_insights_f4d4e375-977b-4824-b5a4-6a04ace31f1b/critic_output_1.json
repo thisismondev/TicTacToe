@@ -1,0 +1,7 @@
+{
+  "1": {
+    "action": "VERIFIED",
+    "confidence": "High",
+    "critic_justification": "FirebaseAnalytics is integrated and logs app interaction events. Declaring App Interactions in the Play Store Data Safety form under Analytics is required and compliant."
+  }
+}

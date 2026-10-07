@@ -1,0 +1,777 @@
+{
+    "codebase_map": {
+        "all_files": [
+            [
+                ".gitignore",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.gitignore",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe"
+            ],
+            [
+                "AGENTS.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\AGENTS.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe"
+            ],
+            [
+                "README.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\README.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe"
+            ],
+            [
+                "build.gradle.kts",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\build.gradle.kts",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe"
+            ],
+            [
+                "gradle.properties",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\gradle.properties",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe"
+            ],
+            [
+                "gradlew",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\gradlew",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe"
+            ],
+            [
+                "gradlew.bat",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\gradlew.bat",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe"
+            ],
+            [
+                "local.properties",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\local.properties",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe"
+            ],
+            [
+                "settings.gradle.kts",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\settings.gradle.kts",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe"
+            ],
+            [
+                "tictactoe_certificate.pem",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\tictactoe_certificate.pem",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe"
+            ],
+            [
+                "SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive"
+            ],
+            [
+                "container-behavior.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\flexbox\\container-behavior.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\flexbox"
+            ],
+            [
+                "get-started.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\flexbox\\get-started.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\flexbox"
+            ],
+            [
+                "index.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\flexbox\\index.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\flexbox"
+            ],
+            [
+                "item-behavior.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\flexbox\\item-behavior.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\flexbox"
+            ],
+            [
+                "container-properties.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\grid\\container-properties.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\grid"
+            ],
+            [
+                "get-started.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\grid\\get-started.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\grid"
+            ],
+            [
+                "index.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\grid\\index.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\grid"
+            ],
+            [
+                "item-properties.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\grid\\item-properties.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\grid"
+            ],
+            [
+                "index.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\mediaquery\\index.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\layouts\\adaptive\\mediaquery"
+            ],
+            [
+                "debug.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\tooling\\debug.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\develop\\ui\\compose\\tooling"
+            ],
+            [
+                "material-listdetail.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\guide\\navigation\\navigation-3\\recipes\\material-listdetail.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\adaptive\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\android-cli\\SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\android-cli"
+            ],
+            [
+                "interact.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\android-cli\\references\\interact.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\android-cli\\references"
+            ],
+            [
+                "journeys.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\android-cli\\references\\journeys.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\android-cli\\references"
+            ],
+            [
+                "SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\edge-to-edge\\SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\edge-to-edge"
+            ],
+            [
+                "SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3"
+            ],
+            [
+                "type-safe-destinations.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\type-safe-destinations.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation"
+            ],
+            [
+                "index.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\index.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3"
+            ],
+            [
+                "migration-guide.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\migration-guide.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3"
+            ],
+            [
+                "animations.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\animations.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "basic.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\basic.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "basicdsl.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\basicdsl.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "basicsaveable.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\basicsaveable.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "bottomsheet.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\bottomsheet.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "common-ui.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\common-ui.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "conditional-transitions.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\conditional-transitions.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "conditional.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\conditional.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "deeplinks-custommatcher.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\deeplinks-custommatcher.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "deeplinks-staticuri.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\deeplinks-staticuri.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "deeplinks-syntheticbackstack.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\deeplinks-syntheticbackstack.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "deeplinks-uriarguments.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\deeplinks-uriarguments.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "dialog.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\dialog.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "lifecycle-owner.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\lifecycle-owner.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "material-listdetail.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\material-listdetail.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "material-supportingpane.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\material-supportingpane.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "modular-hilt.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\modular-hilt.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "modular-koin.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\modular-koin.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "multiple-backstacks.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\multiple-backstacks.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "passingarguments.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\passingarguments.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "results-event.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\results-event.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "results-state.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\results-state.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "scenes-listdetail.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\scenes-listdetail.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "scenes-twopane.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes\\scenes-twopane.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\navigation-3\\references\\android\\guide\\navigation\\navigation-3\\recipes"
+            ],
+            [
+                "SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer"
+            ],
+            [
+                "CONFIGURATION-ANALYZER.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references\\CONFIGURATION-ANALYZER.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references"
+            ],
+            [
+                "CONFIGURATION.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references\\CONFIGURATION.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references"
+            ],
+            [
+                "KEEP-RULES-IMPACT-HIERARCHY.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references\\KEEP-RULES-IMPACT-HIERARCHY.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references"
+            ],
+            [
+                "REDUNDANT-RULES.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references\\REDUNDANT-RULES.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references"
+            ],
+            [
+                "REFLECTION-GUIDE.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references\\REFLECTION-GUIDE.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references"
+            ],
+            [
+                "REPORT_FORMAT.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references\\REPORT_FORMAT.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references"
+            ],
+            [
+                "enable-app-optimization.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references\\android\\topic\\performance\\app-optimization\\enable-app-optimization.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references\\android\\topic\\performance\\app-optimization"
+            ],
+            [
+                "ui-automator.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references\\android\\training\\testing\\other-components\\ui-automator.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\r8-analyzer\\references\\android\\training\\testing\\other-components"
+            ],
+            [
+                "SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\testing-setup\\SKILL.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\testing-setup"
+            ],
+            [
+                "common-patterns.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\testing-setup\\references\\android\\develop\\ui\\compose\\testing\\common-patterns.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\testing-setup\\references\\android\\develop\\ui\\compose\\testing"
+            ],
+            [
+                "compose-screenshot-testing.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\testing-setup\\references\\android\\studio\\preview\\compose-screenshot-testing.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\testing-setup\\references\\android\\studio\\preview"
+            ],
+            [
+                "hilt-testing.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\testing-setup\\references\\android\\training\\dependency-injection\\hilt-testing.md",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.agents\\skills\\testing-setup\\references\\android\\training\\dependency-injection"
+            ],
+            [
+                ".gitignore",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\.gitignore",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app"
+            ],
+            [
+                "build.gradle.kts",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\build.gradle.kts",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app"
+            ],
+            [
+                "google-services.json",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\google-services.json",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app"
+            ],
+            [
+                "proguard-rules.pro",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\proguard-rules.pro",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app"
+            ],
+            [
+                "app-release.aab",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\release\\app-release.aab",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\release"
+            ],
+            [
+                "app-release.aab",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\release\\release\\app-release.aab",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\release\\release"
+            ],
+            [
+                "AndroidManifest.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\AndroidManifest.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main"
+            ],
+            [
+                "App.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\App.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe"
+            ],
+            [
+                "MainActivity.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\MainActivity.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe"
+            ],
+            [
+                "AppDatabase.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\AppDatabase.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local"
+            ],
+            [
+                "GameHistoryDao.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\dao\\GameHistoryDao.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\dao"
+            ],
+            [
+                "GameHistoryEntity.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\entity\\GameHistoryEntity.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\entity"
+            ],
+            [
+                "Game.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\model\\Game.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\model"
+            ],
+            [
+                "GameRepository.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\repository\\GameRepository.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\repository"
+            ],
+            [
+                "AnalyticsEntryPoint.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di\\AnalyticsEntryPoint.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di"
+            ],
+            [
+                "DatabaseModule.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di\\DatabaseModule.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di"
+            ],
+            [
+                "FirebaseModule.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di\\FirebaseModule.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di"
+            ],
+            [
+                "ErrorContent.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component\\ErrorContent.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component"
+            ],
+            [
+                "GameBoard.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component\\GameBoard.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component"
+            ],
+            [
+                "LoadingContent.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component\\LoadingContent.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component"
+            ],
+            [
+                "PlayerCard.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component\\PlayerCard.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component"
+            ],
+            [
+                "ResultSheet.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component\\ResultSheet.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component"
+            ],
+            [
+                "Screen.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\navigation\\Screen.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\navigation"
+            ],
+            [
+                "TicTacToeApp.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\navigation\\TicTacToeApp.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\navigation"
+            ],
+            [
+                "HistoryScreen.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\history\\HistoryScreen.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\history"
+            ],
+            [
+                "HistoryViewModel.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\history\\HistoryViewModel.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\history"
+            ],
+            [
+                "HomeScreen.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\home\\HomeScreen.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\home"
+            ],
+            [
+                "OfflineSetupScreen.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\offline\\OfflineSetupScreen.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\offline"
+            ],
+            [
+                "OfflineSetupViewModel.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\offline\\OfflineSetupViewModel.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\offline"
+            ],
+            [
+                "PlayScreen.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\play\\PlayScreen.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\play"
+            ],
+            [
+                "PlayViewModel.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\play\\PlayViewModel.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\play"
+            ],
+            [
+                "Color.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme\\Color.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme"
+            ],
+            [
+                "ComponentStyles.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme\\ComponentStyles.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme"
+            ],
+            [
+                "Theme.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme\\Theme.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme"
+            ],
+            [
+                "Type.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme\\Type.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme"
+            ],
+            [
+                "AnalyticsHelper.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util\\AnalyticsHelper.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util"
+            ],
+            [
+                "Constants.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util\\Constants.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util"
+            ],
+            [
+                "Result.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util\\Result.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util"
+            ],
+            [
+                "UiState.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util\\UiState.kt",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util"
+            ],
+            [
+                "ic_circle.png",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\drawable\\ic_circle.png",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\drawable"
+            ],
+            [
+                "ic_cross.png",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\drawable\\ic_cross.png",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\drawable"
+            ],
+            [
+                "ic_launcher_background.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\drawable"
+            ],
+            [
+                "ttt.png",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\drawable\\ttt.png",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\drawable"
+            ],
+            [
+                "ic_launcher.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-anydpi-v26"
+            ],
+            [
+                "ic_launcher_round.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-anydpi-v26"
+            ],
+            [
+                "ic_launcher.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-hdpi"
+            ],
+            [
+                "ic_launcher_foreground.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-hdpi"
+            ],
+            [
+                "ic_launcher_round.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-hdpi"
+            ],
+            [
+                "ic_launcher.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-mdpi"
+            ],
+            [
+                "ic_launcher_foreground.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-mdpi"
+            ],
+            [
+                "ic_launcher_round.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-mdpi"
+            ],
+            [
+                "ic_launcher.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xhdpi"
+            ],
+            [
+                "ic_launcher_foreground.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xhdpi"
+            ],
+            [
+                "ic_launcher_round.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xhdpi"
+            ],
+            [
+                "ic_launcher.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxhdpi"
+            ],
+            [
+                "ic_launcher_foreground.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxhdpi"
+            ],
+            [
+                "ic_launcher_round.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxhdpi"
+            ],
+            [
+                "ic_launcher.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxxhdpi"
+            ],
+            [
+                "ic_launcher_foreground.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxxhdpi"
+            ],
+            [
+                "ic_launcher_round.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\mipmap-xxxhdpi"
+            ],
+            [
+                "colors.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\values\\colors.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\values"
+            ],
+            [
+                "strings.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\values\\strings.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\values"
+            ],
+            [
+                "themes.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\values\\themes.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\values"
+            ],
+            [
+                "backup_rules.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\xml\\backup_rules.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\xml"
+            ],
+            [
+                "data_extraction_rules.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\xml\\data_extraction_rules.xml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\xml"
+            ],
+            [
+                "1.jpeg",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\assets\\1.jpeg",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\assets"
+            ],
+            [
+                "2.jpeg",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\assets\\2.jpeg",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\assets"
+            ],
+            [
+                "3.jpeg",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\assets\\3.jpeg",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\assets"
+            ],
+            [
+                "4.jpeg",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\assets\\4.jpeg",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\assets"
+            ],
+            [
+                "libs.versions.toml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\gradle\\libs.versions.toml",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\gradle"
+            ],
+            [
+                "gradle-wrapper.jar",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\gradle\\wrapper\\gradle-wrapper.jar",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\gradle\\wrapper"
+            ],
+            [
+                "gradle-wrapper.properties",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\gradle\\wrapper\\gradle-wrapper.properties",
+                "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\gradle\\wrapper"
+            ]
+        ],
+        "gradles": [
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\build.gradle.kts",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\settings.gradle.kts",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\build.gradle.kts"
+        ],
+        "manifests": [
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\AndroidManifest.xml"
+        ],
+        "source_code": [
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\App.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\MainActivity.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\AppDatabase.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\dao\\GameHistoryDao.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\entity\\GameHistoryEntity.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\local\\model\\Game.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\repository\\GameRepository.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di\\AnalyticsEntryPoint.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di\\DatabaseModule.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di\\FirebaseModule.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component\\ErrorContent.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component\\GameBoard.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component\\LoadingContent.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component\\PlayerCard.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\component\\ResultSheet.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\navigation\\Screen.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\navigation\\TicTacToeApp.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\history\\HistoryScreen.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\history\\HistoryViewModel.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\home\\HomeScreen.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\offline\\OfflineSetupScreen.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\offline\\OfflineSetupViewModel.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\play\\PlayScreen.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\play\\PlayViewModel.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme\\Color.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme\\ComponentStyles.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme\\Theme.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\theme\\Type.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util\\AnalyticsHelper.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util\\Constants.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util\\Result.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util\\UiState.kt",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\values\\colors.xml",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\values\\strings.xml",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\values\\themes.xml",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\xml\\backup_rules.xml",
+            "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\app\\src\\main\\res\\xml\\data_extraction_rules.xml"
+        ]
+    },
+    "data_safety_scan": {
+        "data_sources": {
+            "APP_INTERACTIONS": [
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di\\FirebaseModule.kt (Pattern: FirebaseAnalytics)",
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util\\AnalyticsHelper.kt (Pattern: logEvent)"
+            ],
+            "MUSIC": [
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\repository\\GameRepository.kt (Pattern: song)"
+            ]
+        },
+        "disclosure": {
+            "-": [
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\navigation\\TicTacToeApp.kt (Pattern: collect)",
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\history\\HistoryScreen.kt (Pattern: collect)",
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\offline\\OfflineSetupScreen.kt (Pattern: collect)",
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\play\\PlayScreen.kt (Pattern: AlertDialog)",
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\play\\PlayViewModel.kt (Pattern: collect)"
+            ]
+        }
+    },
+    "found_urls": [],
+    "semantic_files": {
+        "MUSIC": [
+            "PlayerCard.kt"
+        ],
+        "SUPPORT": [
+            "AnalyticsHelper.kt"
+        ]
+    }
+}

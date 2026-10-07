@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.co.mondo.tictactoe.data.local.model.GameRoom
 import id.co.mondo.tictactoe.data.repository.GameRepository
+import id.co.mondo.tictactoe.util.AnalyticsHelper
 import id.co.mondo.tictactoe.util.Result
 import id.co.mondo.tictactoe.util.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OfflineSetupViewModel @Inject constructor(
-    private val gameRepository: GameRepository
+    private val gameRepository: GameRepository,
+    private val analyticsHelper: AnalyticsHelper
 ) : ViewModel() {
     private val _roomState = MutableStateFlow<UiState<GameRoom>>(UiState.Empty)
     val roomState: StateFlow<UiState<GameRoom>> = _roomState.asStateFlow()
@@ -41,6 +43,7 @@ class OfflineSetupViewModel @Inject constructor(
                         drawCount = res.data.drawCount
                     )
                     _roomState.value = UiState.Success(data)
+                    analyticsHelper.logGameStarted(playerX, playerO, mode = "offline")
                 }
                 is Result.Error -> _roomState.value = UiState.Error(res.exception.message ?: "Gagal Membuat Room")
                 is Result.Loading -> _roomState.value = UiState.Loading

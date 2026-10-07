@@ -1,0 +1,41 @@
+{
+    "APP_DIR": "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe",
+    "APP_NAME": "app_name",
+    "GOAL_NAME": "data_safety_part_1",
+    "PACKAGE_NAME": "id.co.mondo.tictactoe",
+    "REPO_ROOT": "C:\\Users\\Lenovo\\.agents\\skills\\play-policy-insights",
+    "TARGET_SDK": 36,
+    "TEMP_DIR": "D:\\RAQHIB ATAILLAH\\MyProject\\Mobile\\TicTacToe\\.scratch\\play_policy_insights_f4d4e375-977b-4824-b5a4-6a04ace31f1b",
+    "data_sources": {
+        "APP_INTERACTIONS": {
+            "description": "Information about how a user interacts with the app. For example, the number of times they visit a page or sections they tap on.",
+            "findings": [
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\di\\FirebaseModule.kt (Pattern: FirebaseAnalytics)",
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\util\\AnalyticsHelper.kt (Pattern: logEvent)"
+            ]
+        },
+        "MUSIC": {
+            "description": "A user\u2019s music files.",
+            "findings": [
+                "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\data\\repository\\GameRepository.kt (Pattern: song)"
+            ]
+        }
+    },
+    "disclosure": [
+        "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\navigation\\TicTacToeApp.kt (Pattern: collect)",
+        "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\history\\HistoryScreen.kt (Pattern: collect)",
+        "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\offline\\OfflineSetupScreen.kt (Pattern: collect)",
+        "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\play\\PlayScreen.kt (Pattern: AlertDialog)",
+        "app\\src\\main\\java\\id\\co\\mondo\\tictactoe\\ui\\screen\\play\\PlayViewModel.kt (Pattern: collect)"
+    ],
+    "found_urls": [],
+    "requested_permissions": {},
+    "semantic_files": {
+        "MUSIC": [
+            "PlayerCard.kt"
+        ],
+        "SUPPORT": [
+            "AnalyticsHelper.kt"
+        ]
+    }
+}

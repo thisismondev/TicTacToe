@@ -1,0 +1,19 @@
+{
+    "data_safety_mismatches": [],
+    "findings": [],
+    "manual_review": [],
+    "metadata": {
+        "app_id": "id.co.mondo.tictactoe",
+        "overall_compliance": "Compliant",
+        "scan_date": "2026-10-07T13:40:39.310388"
+    },
+    "suggested_declaration": {
+        "collected_data": [
+            {
+                "data_type": "App interactions",
+                "linked_to_user": false,
+                "purpose": "Analytics"
+            }
+        ]
+    }
+}
